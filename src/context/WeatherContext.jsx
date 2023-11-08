@@ -13,6 +13,7 @@ import {
   WEATHER_SUCCESS,
 } from '../constants/weatherConstants';
 import { weatherReducer } from '../reducers/weatherReducer';
+import { GENERAL_RESET } from '../constants/generalConstants';
 
 export const WeatherContext = createContext();
 
@@ -77,9 +78,14 @@ export const WeatherProvider = ({ children }) => {
     }
   }, []);
 
+  const generalReset = () => {
+    dispatch({ type: GENERAL_RESET });
+  }
+
   const value = {
-    ...state,
+    ...state,    
     getWeather,
+    generalReset
   };
 
   return (

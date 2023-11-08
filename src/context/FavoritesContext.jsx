@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { getCityByName } from '../helper/getCityByName';
 import { favoritesReducer } from '../reducers/favoritesReducer';
-import { FAVORITE_ADD_ITEM, FAVORITE_ITEMS_WEATHER_FAIL, FAVORITE_ITEMS_WEATHER_REQUEST, FAVORITE_ITEMS_WEATHER_RESET, FAVORITE_ITEMS_WEATHER_SUCCESS, FAVORITE_REMOVE_ITEM } from '../constants/favoritesConstants';
+import { FAVORITE_ADD_ITEM, FAVORITE_ITEMS_WEATHER_FAIL, FAVORITE_ITEMS_WEATHER_REQUEST, FAVORITE_ITEMS_WEATHER_RESET, FAVORITE_ITEMS_WEATHER_SUCCESS, FAVORITE_REMOVE_ITEM, FAVORITE_SHOW_ITEM } from '../constants/favoritesConstants';
 import { CURRENT_WEATHER_URL } from '../constants/weatherConstants';
 
 export const FavoritesContext = createContext();
@@ -33,6 +33,13 @@ export const FavoritesProvider = ({ children }) => {
       payload: favoriteCityName,
     });
   }, []);
+
+  const showFavoriteItems = (favoriteCityName) => {
+    dispatch({
+      type: FAVORITE_SHOW_ITEM,
+      payload: favoriteCityName,
+    });
+  }
 
   const getFavoritesWeather = useCallback(async () => {
     dispatch({ type: FAVORITE_ITEMS_WEATHER_RESET });
@@ -64,6 +71,7 @@ export const FavoritesProvider = ({ children }) => {
     ...state,
     addToFavorites,
     removeFromFavorites,
+    showFavoriteItems,
     getFavoritesWeather,
   };
 

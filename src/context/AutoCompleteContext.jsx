@@ -5,6 +5,7 @@ import autoCompleteReducer from '../reducers/autoCompleteReducer';
 import {
   AUTO_COMPLETE_FAIL,
   AUTO_COMPLETE_REQUEST,
+  AUTO_COMPLETE_RESET,
   AUTO_COMPLETE_SUCCESS
 } from '../constants/autoCompleteConstants';
 
@@ -32,8 +33,12 @@ export const AutoCompleteProvider = ({ children }) => {
     }
   };
 
+  const autoCompleteReset = () => {
+    dispatch({ type: AUTO_COMPLETE_RESET });
+  }
+
   return (
-    <AutoCompleteContext.Provider value={{ ...state, getAutoCompleteResults }}>
+    <AutoCompleteContext.Provider value={{ ...state, getAutoCompleteResults, autoCompleteReset }}>
       {children}
     </AutoCompleteContext.Provider>
   );
