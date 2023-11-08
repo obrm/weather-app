@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-import { errorHandler } from './errorHandler';
 import { CITY_BY_COORDS_URL } from './helperConstants';
 
 export const getCityByCoords = async (latitude, longitude) => {
@@ -12,6 +11,6 @@ export const getCityByCoords = async (latitude, longitude) => {
     return data;
   } catch (error) {
     console.error(error);
-    return errorHandler(error);
+    return error;
   }
 };

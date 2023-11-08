@@ -1,7 +1,6 @@
 
 import { GENERAL_RESET } from '../constants/generalConstants';
 import {
-  AVORITE_ADD_ITEM,
   FAVORITE_ADD_ITEM,
   FAVORITE_ITEMS_WEATHER_FAIL,
   FAVORITE_ITEMS_WEATHER_REQUEST,

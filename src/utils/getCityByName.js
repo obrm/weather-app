@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { errorHandler } from './errorHandler';
 import { CITY_BY_NAME_URL } from './helperConstants';
 
 export const getCityByName = async (cityName) => {
@@ -9,6 +8,6 @@ export const getCityByName = async (cityName) => {
     );
     return data[0].Key;
   } catch (error) {
-    return errorHandler(error);
+    return error;
   }
 };

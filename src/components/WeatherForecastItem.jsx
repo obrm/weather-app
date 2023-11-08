@@ -1,7 +1,7 @@
 import { Card } from 'react-bootstrap';
 
 import Spinner from './layout/Spinner';
-import { weatherImageChooser } from './helper/weatherImageChooser';
+import { weatherImageChooser } from '../utils/weatherImageChooser';
 import { useGlobalWeatherContext } from '../hooks/useGlobalWeatherContext';
 
 const WeatherForecastItem = ({

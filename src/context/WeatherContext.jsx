@@ -1,8 +1,6 @@
 import React, { createContext, useReducer, useCallback } from 'react';
 import axios from 'axios';
 
-import { errorHandler } from '../helper/errorHandler';
-import { getCityByCoords } from '../helper/getCityByCoords';
 import {
   CURRENT_WEATHER_URL,
   DEFAULT_CITY_NAME,
@@ -14,6 +12,7 @@ import {
 } from '../constants/weatherConstants';
 import { weatherReducer } from '../reducers/weatherReducer';
 import { GENERAL_RESET } from '../constants/generalConstants';
+import { getCityByCoords } from './../utils/getCityByCoords';
 
 export const WeatherContext = createContext();
 
@@ -73,7 +72,7 @@ export const WeatherProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: WEATHER_FAIL,
-        payload: errorHandler(error),
+        payload: error,
       });
     }
   }, []);

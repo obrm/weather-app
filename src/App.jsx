@@ -1,39 +1,36 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
 
-import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import FavoritesPage from './pages/FavoritesPage';
 import PageNotFound from './pages/PageNotFound';
+import SharedLayout from './components/layout/SharedLayout';
 
-// Create a router instance
-const router = createBrowserRouter([
+const routes = [
   {
     path: '/',
-    element: <HomePage />,
+    element: <SharedLayout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />
+      },
+      {
+        path: 'favorites',
+        element: <FavoritesPage />,
+      },
+      {
+        path: '*',
+        element: <PageNotFound />,
+      },
+    ]
   },
-  {
-    path: '/favorites',
-    element: <FavoritesPage />,
-  },
-  {
-    path: '*',
-    element: <PageNotFound />,
-  },
-]);
+];
 
 function App() {
+  const router = createBrowserRouter(routes);
+
   return (
-    <>
-      <Header />
-      <Container>
-        <Row className='justify-content-md-center mt-5'>
-          <Col md='auto'>
-            <RouterProvider router={router} />
-          </Col>
-        </Row>
-      </Container>
-    </>
+    <RouterProvider router={router} />
   );
 }
 

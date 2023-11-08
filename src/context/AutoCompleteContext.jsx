@@ -1,7 +1,8 @@
 import { createContext, useReducer } from 'react';
 import axios from 'axios';
 
-import autoCompleteReducer from '../reducers/autoCompleteReducer';
+import autoCompleteReducer from './../reducers/autoCompleteReducer';
+
 import {
   AUTO_COMPLETE_FAIL,
   AUTO_COMPLETE_REQUEST,
@@ -27,6 +28,7 @@ export const AutoCompleteProvider = ({ children }) => {
       const { data } = await axios.get(
         `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${import.meta.env.VITE_ACCUWEATHER_KEY}&q=${query}`
       );
+
       dispatch({ type: AUTO_COMPLETE_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: AUTO_COMPLETE_FAIL, payload: error });

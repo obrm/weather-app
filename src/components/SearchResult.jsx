@@ -1,6 +1,5 @@
 import { Col } from 'react-bootstrap';
 
-import { GENERAL_RESET } from '../redux/general/generalConstants';
 import { useGlobalWeatherContext } from '../hooks/useGlobalWeatherContext';
 
 const SearchResult = ({ result, setText }) => {
