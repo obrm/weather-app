@@ -18,8 +18,6 @@ const ErrorToast = () => {
 
   const hideToast = () => setShow(false);
 
-  console.log(error);
-
   return (
     <Toast show={show} onClose={hideToast}>
       <Toast.Header>
@@ -28,7 +26,7 @@ const ErrorToast = () => {
       </Toast.Header>
       <Toast.Body>
         <p>
-          Ouch! We are sorry, but it seems that there is a {error.message} on our side.
+          Ouch! We are sorry, but it seems that there is a {error} on our side.
         </p>
         <p>We are working on it and hope that it will be solved soon.</p>
         <p>Please try again later.</p>

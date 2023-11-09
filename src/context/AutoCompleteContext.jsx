@@ -31,7 +31,7 @@ export const AutoCompleteProvider = ({ children }) => {
 
       dispatch({ type: AUTO_COMPLETE_SUCCESS, payload: data });
     } catch (error) {
-      dispatch({ type: AUTO_COMPLETE_FAIL, payload: error });
+      dispatch({ type: AUTO_COMPLETE_FAIL, payload: error.message });
     }
   };
 

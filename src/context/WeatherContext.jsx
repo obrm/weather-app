@@ -72,7 +72,7 @@ export const WeatherProvider = ({ children }) => {
     } catch (error) {
       dispatch({
         type: WEATHER_FAIL,
-        payload: error,
+        payload: error.message,
       });
     }
   }, []);

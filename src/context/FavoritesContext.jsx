@@ -63,7 +63,7 @@ export const FavoritesProvider = ({ children }) => {
       } catch (error) {
         dispatch({
           type: FAVORITE_ITEMS_WEATHER_FAIL,
-          payload: error,
+          payload: error.message,
         });
       }
     }
