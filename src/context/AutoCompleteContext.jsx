@@ -40,7 +40,11 @@ export const AutoCompleteProvider = ({ children }) => {
   }
 
   return (
-    <AutoCompleteContext.Provider value={{ ...state, getAutoCompleteResults, autoCompleteReset }}>
+    <AutoCompleteContext.Provider value={{
+      ...state,
+      getAutoCompleteResults,
+      autoCompleteReset
+    }}>
       {children}
     </AutoCompleteContext.Provider>
   );

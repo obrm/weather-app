@@ -4,7 +4,15 @@ import axios from 'axios';
 import { getCityByName } from './../utils/getCityByName';
 
 import { favoritesReducer } from '../reducers/favoritesReducer';
-import { FAVORITE_ADD_ITEM, FAVORITE_ITEMS_WEATHER_FAIL, FAVORITE_ITEMS_WEATHER_REQUEST, FAVORITE_ITEMS_WEATHER_RESET, FAVORITE_ITEMS_WEATHER_SUCCESS, FAVORITE_REMOVE_ITEM, FAVORITE_SHOW_ITEM } from '../constants/favoritesConstants';
+import {
+  FAVORITE_ADD_ITEM,
+  FAVORITE_ITEMS_WEATHER_FAIL,
+  FAVORITE_ITEMS_WEATHER_REQUEST,
+  FAVORITE_ITEMS_WEATHER_RESET,
+  FAVORITE_ITEMS_WEATHER_SUCCESS,
+  FAVORITE_REMOVE_ITEM,
+  FAVORITE_SHOW_ITEM
+} from '../constants/favoritesConstants';
 import { CURRENT_WEATHER_URL } from '../constants/weatherConstants';
 
 export const FavoritesContext = createContext();
