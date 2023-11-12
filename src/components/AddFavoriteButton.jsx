@@ -12,14 +12,14 @@ const AddFavoriteButton = () => {
   const { favoritesWeatherItems, removeFromFavorites, addToFavorites } = useGlobalFavoritesContext();
 
   useEffect(() => {
-    let check = false;
+    let isChecked = false;
 
     if (favoritesWeatherItems && favoritesWeatherItems.length > 0) {
-      check = favoritesWeatherItems.find(
+      isChecked = favoritesWeatherItems.find(
         (fav) => fav.favoriteCityName === currentWeatherCityName
       );
     }
-    if (check) {
+    if (isChecked) {
       setIsFavorite(true);
     }
   }, [currentWeatherCityName, favoritesWeatherItems]);
